@@ -34,7 +34,7 @@
         <form action="{{route('categories.store')}}" method="post">
             @csrf
             <div class="form-group">
-                <label for="">Tên danh mục</label>
+                <label for="">Tên danh mục muốn bổ sung</label>
                 <input type="text" name="name" class="form-control" value="{{old('name')}}">
             </div>
 
@@ -48,7 +48,7 @@
                 <input type="text" name="parent_id" class="form-control" value="{{old('parent_id')}}">
             </div>
 
-            <button type="submit" class="btn btn-primary">Thêm mới</button>
+            <button type="submit" class="btn btn-primary">Cập nhật thêm mới</button>
 
         </form>
     </div>

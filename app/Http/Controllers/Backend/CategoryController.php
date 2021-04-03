@@ -45,14 +45,17 @@ class CategoryController extends Controller
      */
     public function store(CategoryRequest $request): RedirectResponse
     {
+        //gán và lấy các dữ liệu trong bảng, trường nào ko muốn lấy thì except loại trừ ra
         $data = $request->except('_token');
 
         try {
+            //nếu thành công thì lưu
             Category::create($data);
         } catch (\Exception $exception) {
+            //không thành công thì thông báo
             return redirect()->back()->with('failed', 'Thêm mới thất bại');
         }
-
+        //lưu thành công thì đưa ra thông báo
         return redirect()->back()->with('success', 'Thêm mới thành công');
     }
 
@@ -109,6 +112,8 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
-    }
+        $category = Category::find($id);
+        $category->delete();
+        return redirect('backend.index');
+    } 
 }

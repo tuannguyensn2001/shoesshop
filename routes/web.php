@@ -17,3 +17,4 @@ Route::group(['prefix' => 'admin'],function(){
     Route::get('/',[\App\Http\Controllers\Backend\HomeController::class,'index']);
     Route::resource('categories', \App\Http\Controllers\Backend\CategoryController::class);
 });
+    Route::get('categories-delete/{id}',[\App\Http\Controllers\Backend\CategoryController::class,'destroy']);

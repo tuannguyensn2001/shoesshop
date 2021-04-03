@@ -19,8 +19,8 @@
                 <td>{{ $category->slug }}</td>
                 <td>{{ $category->parent_id }}</td>
                 <td>
-                    <a href="{{route('categories.edit',['category' => $category->id])}}">Sửa</a>
-                    <button>Xóa</button>
+                    <a class="btn btn-primary" href="{{route('categories.edit',['category' => $category->id])}}">Sửa</a>
+                    <a class="btn btn-danger" onclick="return confirm('Bạn có chắc muốn xóa chưa ?')" href="{{asset('categories-delete',['category'=>$category->id])}}">Xóa</a>
                 </td>
 
             </tr>
